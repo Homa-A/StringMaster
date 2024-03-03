@@ -53,7 +53,6 @@ public class Advanced {
             }
             String newsen = new String(newsentence);
         return newsen;
-
     }
 
     /**
@@ -90,7 +89,7 @@ public class Advanced {
                 L[i] = (char) (L[i] + 32);
             }
         }
-        int j=1,z=0;
+        int j=1,z=0,x=0;
         for (int i = 0; i < firstName.length(); i++)
         {
             if (!((F[i]>64 && F[i]<91)||(F[i]>96 && F[i]<123)))
@@ -101,7 +100,13 @@ public class Advanced {
                     j++;
                 }
                 j=i+1;
+                z++;
             }
+        }
+        char[] F1 = new  char[firstName.length()-z];
+        for (int i = 0; i < firstName.length()-z; i++)
+        {
+            F1[i]=F[i];
         }
         j=1;
         for (int i = 0; i < lastName.length(); i++)
@@ -114,16 +119,31 @@ public class Advanced {
                     j++;
                 }
                 j=i+1;
+                x++;
             }
+        }
+        char[] L1 = new  char[lastName.length()-x];
+        for (int i = 0; i < lastName.length()-x; i++)
+        {
+            L1[i]=L[i];
         }
 //        int z=0;
 //        for (int i = 0; i < firstName.length(); i++)
 //        {
 //                if (F[i])
 //        }
-        String FF = new String(F);
-        String LL = new String(L);
-        FF = FF + " " + LL;
+        String FF = new String(F1);
+        String LL = new String(L1);
+        char[] g = new char[1];
+        g[0]=' ';
+        if (L[0] == g[0])
+        {
+            FF=FF;
+        }
+        else
+        {
+            FF = FF + " " + LL;
+        }
         return FF;
 
     }
@@ -150,3 +170,51 @@ public class Advanced {
         return newword;
     }
 }
+//
+//
+//public static String replaceWordInSentence(String sentence, String word, String newWord) {
+//    char[] sentenceChars = sentence.toCharArray();
+//    char[] wordChars = word.toCharArray();
+//    char[] newWordChars = newWord.toCharArray();
+//    char[] newSentence = new char[100];
+//    boolean flag = true;
+//    int k = 0;
+//
+//    for (int i = 0; i < sentenceChars.length; i++)
+//    {
+//        if (sentenceChars[i] == wordChars[0])
+//        {
+//            flag = true;
+//            int j = 1;
+//            while (j < wordChars.length)
+//            {
+//                i++;
+//                if (sentenceChars[i] != wordChars[j])
+//                {
+//                    flag = false;
+//                    break;
+//                }
+//                j++;
+//            }
+//
+//            if (flag)
+//            {
+//                for (int x = 0; x < newWordChars.length; x++)
+//                {
+//                    newSentence[k++] = newWordChars[x];
+//                }
+//            }
+//            else
+//            {
+//                newSentence[k++] = sentenceChars[i - j];
+//            }
+//
+//        }
+//        else
+//        {
+//            newSentence[k++] = sentenceChars[i];
+//        }
+//    }
+//
+//    return new String(newSentence).trim();
+//}
