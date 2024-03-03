@@ -90,9 +90,40 @@ public class Advanced {
                 L[i] = (char) (L[i] + 32);
             }
         }
+        int j=1,z=0;
+        for (int i = 0; i < firstName.length(); i++)
+        {
+            if (!((F[i]>64 && F[i]<91)||(F[i]>96 && F[i]<123)))
+            {
+                while (j < firstName.length())
+                {
+                    F[j]=F[(j+1)];
+                    j++;
+                }
+                j=i+1;
+            }
+        }
+        j=1;
+        for (int i = 0; i < lastName.length(); i++)
+        {
+            if (!((L[i]>64 && L[i]<91)||(L[i]>96 && L[i]<123)))
+            {
+                while (j < lastName.length())
+                {
+                    L[j]=L[(j+1)];
+                    j++;
+                }
+                j=i+1;
+            }
+        }
+//        int z=0;
+//        for (int i = 0; i < firstName.length(); i++)
+//        {
+//                if (F[i])
+//        }
         String FF = new String(F);
         String LL = new String(L);
-        FF = FF + " "+LL;
+        FF = FF + " " + LL;
         return FF;
 
     }
@@ -105,21 +136,15 @@ public class Advanced {
     public String doubleChar(String word)
     {
         char[] W = word.toCharArray();
-        int j = 1; 
         for (int i = 0; i < word.length() ; i++) 
         {
-            while (j < word.length()) 
-            {
-                if (W[i] == W[j]) 
+                if (W[i] == W[(i+1)])
                 {
                     for (int k = i; k < word.length(); k++) 
                     {
                         W[k] = W[(k+1)];
                     }    
                 }
-                j ++;    
-            }
-            j = i+1;
         }
         String newword = new String(W);
         return newword;

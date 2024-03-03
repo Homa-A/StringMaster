@@ -17,7 +17,8 @@ public class StringTest {
         assertEquals(4, warmup.oddEvenCounter("1111", false));
     }
     @Test
-    public void firstWord_test(){
+    public void firstWord_test()
+    {
         assertEquals("Fred", warmup.firstWord("George", "Fred"));
         assertEquals("Harrold", warmup.firstWord("Harry", "Harrold"));
         assertEquals("Ali", warmup.firstWord("Ali", "Alson"));

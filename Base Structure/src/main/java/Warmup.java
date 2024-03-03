@@ -12,7 +12,7 @@ public class Warmup {
         char[][] bakhsh = new char[50][50];
         int j=0;
         int k=0;
-        for (int i = 0; i < sentence.length() ; i++) 
+        for (int i = 0; i < sentence.length() ; i++)
         {
             if (sen[i] == ' ')
             {
@@ -88,23 +88,34 @@ public class Warmup {
      */
     public String firstWord(String wordA, String wordB)
     {
-        boolean flag = true;
+//        boolean flag = true;
         char[] A = wordA.toCharArray();
         char[] B = wordB.toCharArray();
-        for (int i = 0; i < wordA.length(); i++)
+//        int[] a = new int[A.length];
+//        int[] b = new int[B.length];
+//        for (int i = 0; i < A.length; i++) {
+//            a[i]=A[i];
+//        }
+//        for (int i = 0; i < A.length; i++) {
+//            b[i]=B[i];
+//        }
+        for (int i = 0; i < wordA.length() && i < wordB.length(); i++)
         {
-            if (A[i] < B[i])
+            if ( (int)B[i] < (int)A[i] )
             {
-                flag = false;
+//                flag = false;
+                return wordB;
             }
+
         }
-        if (flag == true)
-        {
-            return wordA;
-        }
-        else
-        {
-            return wordB;
-        }
+        return wordA;
+//        if (flag == true)
+//        {
+//            return wordA;
+//        }
+//        else
+//        {
+//            return wordB;
+//        }
     }
 }
