@@ -11,48 +11,31 @@ public class Advanced {
      */
     public String wordCensor(String sentence, String word, String newWord)
         {
-            char[] newsentence = new char[100];
-            char[] sentence1 = sentence.toCharArray();
-            char[] word1 = word.toCharArray();
-            char[] newword1= newWord.toCharArray();
-            boolean flag = true;
-            for (int i = 0 ; i < sentence.length() ; i++)
+           char[] newsen = new char[sentence.length()-word.length()+newWord.length()];
+           int z=0;
+           char[] sentence1 = sentence.toCharArray();
+           char[] W = word.toCharArray();
+           char[] N = newWord.toCharArray();
+            for (int i = sentence.length()-1 ; i > 0 ; i--)
             {
-                if (sentence1[i] == word1 [0])
+                if (sentence1[i] == ' ')
                 {
-                    int j;
-                    for (j = 1 ; j < word.length() ; j++)
+                    z=i;
+                    for (int j = 0; j < i; j++)
                     {
-                        i ++;
-                        if (sentence1[i] != word1[j] )
-                        {
-                            flag = false;
-                        }
+                        newsen[j] = sentence1[j];
                     }
-                    i = i - j;
-                        if (flag == true)
-                        {
-                            for (int k = 0; k < i; k++)
-                            {
-                                newsentence[k] = sentence1[k];
-                            }
-                            int z=0;
-                            for (int k = (i+1); k < newWord.length(); k++)
-                            {
-                                newsentence[k] = newword1[z];
-                                z++;
-                            }
-                            z=i + newWord.length();
-                            for (int k = i + word.length() ; k < sentence.length(); k++)
-                            {
-                                newsentence[z] = sentence1[k];
-                                z++;
-                            }
-                        }
+                    break;
                 }
             }
-            String newsen = new String(newsentence);
-        return newsen;
+            z++;
+            for (int i = 0; i < newWord.length(); i++,z++)
+            {
+                    newsen[z] = N[i];
+            }
+            newsen[sentence.length()-word.length()-1]=' ';
+            String javab = new String(newsen);
+        return javab;
     }
 
     /**
@@ -161,60 +144,54 @@ public class Advanced {
                 if (W[i] == W[(i+1)])
                 {
                     for (int k = i; k < word.length(); k++) 
-                    {
+                     {
                         W[k] = W[(k+1)];
                     }    
                 }
         }
-        String newword = new String(W);
-        return newword;
+        String new1 = new String(W);
+        return new1;
     }
 }
 //
-//
-//public static String replaceWordInSentence(String sentence, String word, String newWord) {
-//    char[] sentenceChars = sentence.toCharArray();
-//    char[] wordChars = word.toCharArray();
-//    char[] newWordChars = newWord.toCharArray();
-//    char[] newSentence = new char[100];
-//    boolean flag = true;
-//    int k = 0;
-//
-//    for (int i = 0; i < sentenceChars.length; i++)
-//    {
-//        if (sentenceChars[i] == wordChars[0])
+//char[] newsentence = new char[100];
+//char[] sentence1 = sentence.toCharArray();
+//char[] word1 = word.toCharArray();
+//char[] newword1= newWord.toCharArray();
+//boolean flag = true;
+//            for (int i = 0 ; i < sentence.length() ; i++)
 //        {
-//            flag = true;
-//            int j = 1;
-//            while (j < wordChars.length)
-//            {
-//                i++;
-//                if (sentenceChars[i] != wordChars[j])
-//                {
-//                    flag = false;
-//                    break;
-//                }
-//                j++;
-//            }
-//
-//            if (flag)
-//            {
-//                for (int x = 0; x < newWordChars.length; x++)
-//                {
-//                    newSentence[k++] = newWordChars[x];
-//                }
-//            }
-//            else
-//            {
-//                newSentence[k++] = sentenceChars[i - j];
-//            }
-//
-//        }
-//        else
+//        if (sentence1[i] == word1 [0])
 //        {
-//            newSentence[k++] = sentenceChars[i];
+//int j;
+//                    for (j = 1 ; j < word.length() ; j++)
+//        {
+//i ++;
+//        if (sentence1[i] != word1[j] )
+//        {
+//flag = false;
 //        }
-//    }
-//
-//    return new String(newSentence).trim();
-//}
+//        }
+//i = i - j;
+//                        if (flag == true)
+//        {
+//        for (int k = 0; k < i; k++)
+//        {
+//newsentence[k] = sentence1[k];
+//        }
+//int z=0;
+//                            for (int k = (i+1); k < newWord.length(); k++)
+//        {
+//newsentence[k] = newword1[z];
+//z++;
+//        }
+//z=i + newWord.length();
+//                            for (int k = i + word.length() ; k < sentence.length(); k++)
+//        {
+//newsentence[z] = sentence1[k];
+//z++;
+//        }
+//        }
+//        }
+//        }
+//String newsen = new String(newsentence);
