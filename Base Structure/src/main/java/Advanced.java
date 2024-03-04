@@ -138,20 +138,55 @@ public class Advanced {
      */
     public String doubleChar(String word)
     {
-        char[] W = word.toCharArray();
-        char[] neww = new char[word.length()];
-//        String newword="";
-        for (int i = 0; i < word.length() ; i++)
+        char[] Word = word.toCharArray();
+//        char[] neww = new char[word.length()];
+//        int z=0;
+//        for (int i = 0; i < word.length()-1 ; i++)
+//        {
+//                if ((i+1)==word.length())
+//                {
+//                    neww[z+1] = W[i+1];
+//                    break;
+////                }
+//                if (W[i] == W[(i+1)])
+//                {
+//                    neww[z] = W[i];
+//                    z++;
+//                    i++;
+//                }
+//                else
+//                {
+//                    neww[z] = W[i];
+//                    z++;
+//                }
+//        }
+//        z++;
+//        neww[z-1] = W[word.length()-1];
+//        String new1 ="";
+//        for (int i = 0; i < word.length(); i++)
+//        {
+//            if ( (neww[i]>64 && neww[i]<91) || (neww[i]>96 && neww[i]<123) || (neww[i]==' '))
+//            {
+//                    new1 = String.valueOf(+ neww[i]);
+//            }
+//        }
+        int z=0;
+        for (int i = 0; i < word.length()-1; i++)
         {
-                if (W[i] == W[(i+1)])
+                if (Word[i] == Word[i+1])
                 {
-                    for (int k = 0; k < i; k++)
-                     {
-                        neww[k] = W[k];
-                     }
+                    for (int j = i; j < word.length()-1 ; j++)
+                    {
+                        Word[j] = Word[j+1];
+                    }
+                    if(i<Word.length-z){
+                        z++;
+                        i--;
+                    }
+
                 }
         }
-        String new1 = new String(W);
-        return new1;
+        String newsentence = String.copyValueOf(Word, 0, word.length()-z+1);
+        return newsentence;
     }
 }

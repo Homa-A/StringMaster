@@ -7,47 +7,12 @@ public class Warmup {
      */
     public String wordFinder(String sentence, int number)
     {
-
-        char[] sen = sentence.toCharArray();
-        char[][] bakhsh = new char[50][50];
-        int j=0;
-        int k=0;
-        for (int i = 0; i < sentence.length() ; i++)
+        String[] list =sentence.split(" ");
+        if (list.length < number)
         {
-            if (sen[i] == ' ')
-            {
-                j++;
-                k=0;
-            }
-            bakhsh[j][k]=sen[i];
-            k++;
+            return " Number = " + number + " is out Of Bound";
         }
-        char[] J = new char[100];
-        int z;
-        int i = 0;
-        if ((number-1) > j)
-        {
-            char[] j1 = {'N', 'u', 'm', 'b', 'e', 'r', ' ', '=', ' ', ' ', ' ', 'i', 's', ' ', 'o', 'u', 't', ' ', 'O', 'f', ' ', 'B', 'o', 'u', 'n', 'd', ' '};
-            J = j1;
-            J[9]= (char) number;
-        }
-        else
-        {
-            for ( i = 0; bakhsh[number-1][i] != '\0'; i++)
-            {
-                J[i] = bakhsh[number-1][i];
-            }
-        }
-        z=i;
-        char[] J1 = new char[z];
-        for (int l = 0; l <= z; l++)
-        {
-            J1[l] = J[l];
-        }
-        String dd = new String(J1);
-//        System.out.println(dd);
-//        System.out.println("dvds");
-        return dd;
+        return list[number-1];
     }
 
     /**
